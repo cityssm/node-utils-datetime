@@ -99,6 +99,15 @@ describe('dateTimeFns', () => {
     })
   })
 
+  describe('#dateToTimePeriodString()', () => {
+    it('Converts new Date(1970, 1 - 1, 1, 1, 23) to "01:23"', () => {
+      assert.strictEqual(
+        dateTimeFns.dateToTimePeriodString(new Date(1970, 1 - 1, 1, 1, 23)),
+        '1:23 a.m.'
+      )
+    })
+  })
+
   describe('#timeIntegerToString()', () => {
     it('Converts 123 to "01:23"', () => {
       assert.strictEqual(dateTimeFns.timeIntegerToString(123), '01:23')
@@ -106,6 +115,16 @@ describe('dateTimeFns', () => {
 
     it('Converts 0 to "00:00"', () => {
       assert.strictEqual(dateTimeFns.timeIntegerToString(0), '00:00')
+    })
+  })
+
+  describe('#timeIntegerToPeriodString()', () => {
+    it('Converts 123 to "1:23 a.m."', () => {
+      assert.strictEqual(dateTimeFns.timeIntegerToPeriodString(123), '1:23 a.m.')
+    })
+
+    it('Converts 0 to "12:00 a.m."', () => {
+      assert.strictEqual(dateTimeFns.timeIntegerToPeriodString(0), '12:00 a.m.')
     })
   })
 

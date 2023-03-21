@@ -29,5 +29,7 @@ export { dateIntegerToString } from './dateIntegerToString.js';
 export { dateStringToInteger } from './dateStringToInteger.js';
 export { dateToTimeInteger } from './dateToTimeInteger.js';
 export { dateToTimeString } from './dateToTimeString.js';
+export { dateToTimePeriodString } from './dateToTimePeriodString.js';
 export { timeIntegerToString } from './timeIntegerToString.js';
+export { timeIntegerToPeriodString } from './timeIntegerToPeriodString.js';
 export { timeStringToInteger } from './timeStringToInteger.js';

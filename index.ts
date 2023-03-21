@@ -46,9 +46,11 @@ export { dateStringToInteger } from './dateStringToInteger.js'
 // From Date Object
 export { dateToTimeInteger } from './dateToTimeInteger.js'
 export { dateToTimeString } from './dateToTimeString.js'
+export { dateToTimePeriodString } from './dateToTimePeriodString.js'
 
 // From Time Integer
 export { timeIntegerToString } from './timeIntegerToString.js'
+export { timeIntegerToPeriodString } from './timeIntegerToPeriodString.js'
 
 // From Time String
 export { timeStringToInteger } from './timeStringToInteger.js'
