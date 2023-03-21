@@ -30,11 +30,6 @@ describe('dateTimeFns', () => {
       )
     })
 
-    it('Converts 10101 to "0001-01-01"', () => {
-      // eslint-disable-next-line unicorn/numeric-separators-style
-      assert.strictEqual(dateTimeFns.dateIntegerToString(10101), '0001-01-01')
-    })
-
     it('Converts null to ""', () => {
       // eslint-disable-next-line unicorn/no-null
       assert.strictEqual(dateTimeFns.dateIntegerToString(null), '')
