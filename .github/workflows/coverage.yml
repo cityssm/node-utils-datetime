@@ -31,7 +31,7 @@ jobs:
       - name: Install Package
         run: |
           npm ci
-          npm install -g mocha c8
+          npm install -g mocha c8 cross-env
 
       - name: Code Climate (Before)
         if: ${{ github.event_name != 'pull_request' && env.CC_TEST_REPORTER_ID != '' && matrix.node == 16 }}
