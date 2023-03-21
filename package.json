@@ -1,10 +1,23 @@
 {
   "name": "@cityssm/utils-datetime",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Date time utilities for Node.js applications",
+  "keywords": [
+    "date",
+    "time",
+    "format"
+  ],
   "type": "module",
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "homepage": "https://github.com/cityssm/node-utils-datetime#readme",
+  "bugs": {
+      "url": "https://github.com/cityssm/node-utils-datetime/issues"
+  },
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/cityssm/node-utils-datetime.git"
   },
   "exports": "./index.js",
   "types": "./index.d.ts",
