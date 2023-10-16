@@ -1,3 +1,5 @@
+import 'core-js'
+
 export function dateToTimePeriodString(dateObject: Date): string {
   return Intl.DateTimeFormat('en-CA', {
     hourCycle: 'h12',
