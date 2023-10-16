@@ -5,5 +5,5 @@ export function dateToTimePeriodString(dateObject) {
         minute: '2-digit'
     })
         .format(dateObject)
-        .replace(/ /g, ' ');
+        .replaceAll('\u202F', ' ');
 }

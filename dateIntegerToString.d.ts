@@ -1,1 +1,2 @@
-export declare function dateIntegerToString(dateInteger: number | undefined | null): string | undefined;
+export declare function dateIntegerToString(dateInteger: number): string;
+export declare function dateIntegerToString(dateInteger: null | undefined | 0): '';

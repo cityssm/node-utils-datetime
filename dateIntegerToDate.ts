@@ -1,4 +1,13 @@
 export function dateIntegerToDate(
+  dateInteger: number,
+  timeInteger?: number
+): Date
+export function dateIntegerToDate(
+  dateInteger: null | undefined | 0,
+  timeInteger?: number
+): undefined
+
+export function dateIntegerToDate(
   dateInteger: number | undefined | null,
   timeInteger = 0
 ): Date | undefined {
@@ -11,7 +20,7 @@ export function dateIntegerToDate(
     return
   }
 
-  const dateString = ('00000000' + dateInteger!.toString()).slice(-8)
+  const dateString = ('00000000' + dateInteger.toString()).slice(-8)
 
   const timeString = ('0000' + (timeInteger ?? 0).toString()).slice(-4)
 

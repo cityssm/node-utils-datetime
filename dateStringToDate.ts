@@ -1,5 +1,7 @@
-export function dateStringToDate(dateString: string,
-  timeString = '00:00'): Date {
+export function dateStringToDate(
+  dateString: string,
+  timeString = '00:00'
+): Date {
   const datePieces = dateString.split('-')
   const timePieces = timeString.split(':')
 

@@ -1,1 +1,1 @@
-export declare function timeIntegerToString(timeInteger: number): string;
+export declare function timeIntegerToString(timeInteger: number | undefined | null): string;

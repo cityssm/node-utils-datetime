@@ -9,15 +9,15 @@
   ],
   "type": "module",
   "engines": {
-    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+    "node": "^14.13.1 || >=16.0.0"
   },
   "homepage": "https://github.com/cityssm/node-utils-datetime#readme",
   "bugs": {
-      "url": "https://github.com/cityssm/node-utils-datetime/issues"
+    "url": "https://github.com/cityssm/node-utils-datetime/issues"
   },
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/cityssm/node-utils-datetime.git"
+    "type": "git",
+    "url": "git+https://github.com/cityssm/node-utils-datetime.git"
   },
   "exports": "./index.js",
   "types": "./index.d.ts",
@@ -31,13 +31,8 @@
   "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
   "devDependencies": {
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^18.15.5",
-    "@typescript-eslint/eslint-plugin": "^5.56.0",
-    "@typescript-eslint/parser": "^5.56.0",
-    "eslint": "^8.36.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-unicorn": "^46.0.0"
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^20.8.6",
+    "eslint-config-cityssm": "^0.5.1"
   }
 }
