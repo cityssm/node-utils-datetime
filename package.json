@@ -9,7 +9,7 @@
   ],
   "type": "module",
   "engines": {
-    "node": "^14.13.1 || >=16.0.0"
+    "node": ">=18.0.0"
   },
   "homepage": "https://github.com/cityssm/node-utils-datetime#readme",
   "bugs": {
@@ -31,12 +31,8 @@
   "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
   "devDependencies": {
-    "@types/core-js": "^2.5.6",
-    "@types/mocha": "^10.0.2",
-    "@types/node": "^20.8.6",
-    "eslint-config-cityssm": "^0.5.1"
-  },
-  "dependencies": {
-    "core-js": "^3.33.0"
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.10.0",
+    "eslint-config-cityssm": "^1.0.0"
   }
 }
