@@ -1,7 +1,9 @@
 .github/
 coverage/
 test/
+
 .codeclimate.yml
+.deepsource.toml
 .eslintignore
 .eslintrc.json
 .gitignore
