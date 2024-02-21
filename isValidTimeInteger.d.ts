@@ -1,1 +1,1 @@
-export declare function isValidTimeInteger(possibleTimeInteger: unknown): boolean;
+export declare function isValidTimeInteger(possibleTimeInteger: unknown): possibleTimeInteger is number;

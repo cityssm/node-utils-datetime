@@ -1,3 +1,5 @@
+import type { DateString } from './dateTimeTypes.js'
+
 const dateStringRegex = /^\d{4}-[01]\d-[0-3]\d$/
 
 /**
@@ -5,7 +7,9 @@ const dateStringRegex = /^\d{4}-[01]\d-[0-3]\d$/
  * @param {unknown} possibleDateString - A possible date string
  * @returns {boolean} - True when the possible date string is valid
  */
-export function isValidDateString(possibleDateString: unknown): boolean {
+export function isValidDateString(
+  possibleDateString: unknown
+): possibleDateString is DateString {
   return (
     typeof possibleDateString === 'string' &&
     (possibleDateString ?? '').length === 10 &&

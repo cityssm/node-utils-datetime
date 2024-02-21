@@ -18,5 +18,5 @@ export function dateIntegerToString(
     return ''
   }
 
-  return dateToString(dateIntegerToDate(dateInteger as number))
+  return dateToString(dateIntegerToDate(dateInteger))
 }

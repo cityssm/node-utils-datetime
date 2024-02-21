@@ -3,7 +3,9 @@
  * @param {unknown} possibleTimeInteger - A possible time number
  * @returns {boolean} - True if the possible time integer is valid.
  */
-export function isValidTimeInteger(possibleTimeInteger: unknown): boolean {
+export function isValidTimeInteger(
+  possibleTimeInteger: unknown
+): possibleTimeInteger is number {
   return (
     typeof possibleTimeInteger === 'number' &&
     possibleTimeInteger >= 0 &&

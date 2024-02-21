@@ -1,3 +1,5 @@
+import type { TimeString } from './dateTimeTypes.js'
+
 const timeStringRegex = /^[01]\d:[0-5]\d$/
 
 /**
@@ -5,7 +7,9 @@ const timeStringRegex = /^[01]\d:[0-5]\d$/
  * @param {unknown} possibleTimeString - A possible time string.
  * @returns {boolean} - True when the possible time string is valid.
  */
-export function isValidTimeString(possibleTimeString: unknown): boolean {
+export function isValidTimeString(
+  possibleTimeString: unknown
+): possibleTimeString is TimeString {
   return (
     typeof possibleTimeString === 'string' &&
     (possibleTimeString ?? '').length === 5 &&

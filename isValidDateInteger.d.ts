@@ -1,1 +1,1 @@
-export declare function isValidDateInteger(possibleDateInteger: unknown): boolean;
+export declare function isValidDateInteger(possibleDateInteger: unknown): possibleDateInteger is number;

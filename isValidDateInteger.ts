@@ -3,7 +3,9 @@
  * @param {unknown} possibleDateInteger - A possible date number
  * @returns {boolean} - True if the possible date integer is valid.
  */
-export function isValidDateInteger(possibleDateInteger: unknown): boolean {
+export function isValidDateInteger(
+  possibleDateInteger: unknown
+): possibleDateInteger is number {
   return (
     typeof possibleDateInteger === 'number' &&
     possibleDateInteger >= 101 &&
