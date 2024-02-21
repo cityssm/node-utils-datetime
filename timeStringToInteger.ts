@@ -6,5 +6,5 @@ import type { TimeString } from './dateTimeTypes.js'
  * @returns {number} - A number representing a time.
  */
 export function timeStringToInteger(timeString: TimeString): number {
-  return Number.parseInt(('0' + timeString).replaceAll(':', ''), 10)
+  return Number.parseInt(`0${timeString}`.replaceAll(':', ''), 10)
 }

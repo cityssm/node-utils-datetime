@@ -22,9 +22,9 @@ export function dateIntegerToDate(
     return undefined
   }
 
-  const dateString = ('00000000' + (dateInteger as number).toString()).slice(-8)
+  const dateString = `00000000${(dateInteger as number).toString()}`.slice(-8)
 
-  const timeString = ('0000' + (timeInteger ?? 0).toString()).slice(-4)
+  const timeString = `0000${(timeInteger ?? 0).toString()}`.slice(-4)
 
   return new Date(
     Number.parseInt(dateString.slice(0, 4), 10),

@@ -8,7 +8,7 @@ import type { TimeString } from './dateTimeTypes.js'
 export function timeIntegerToString(
   timeInteger: number | undefined | null
 ): TimeString {
-  const timeString = ('0000' + (timeInteger ?? 0).toString()).slice(-4)
+  const timeString = `0000${(timeInteger ?? 0).toString()}`.slice(-4)
 
-  return (timeString.slice(0, 2) + ':' + timeString.slice(2, 4)) as TimeString
+  return `${timeString.slice(0, 2)}:${timeString.slice(2, 4)}` as TimeString
 }
