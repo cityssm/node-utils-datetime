@@ -1,12 +1,16 @@
 import { dateStringToDate } from './dateStringToDate.js'
-import type { DateString } from './dateTimeTypes.js'
 import { dateToInteger } from './dateToInteger.js'
+import { isValidDateString } from './isValidDateString.js'
 
 /**
  * Formats a date string as a number.
- * @param {DateString} dateString - A date formatted as a string (ex. '2024-12-31')
+ * @param {string} dateString - A date formatted as a string (ex. '2024-12-31')
  * @returns {number} - A number representing a date.
  */
-export function dateStringToInteger(dateString: DateString): number {
+export function dateStringToInteger(dateString: string): number | undefined {
+  if (!isValidDateString(dateString)) {
+    return undefined
+  }
+
   return dateToInteger(dateStringToDate(dateString))
 }

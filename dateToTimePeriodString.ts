@@ -5,7 +5,13 @@ import type { TimePeriodString } from './dateTimeTypes.js'
  * @param {Date} dateObject - A JavaScript Date object.
  * @returns {TimePeriodString} - A time string formatted with the time period (ex. 1:23 a.m.)
  */
-export function dateToTimePeriodString(dateObject: Date): TimePeriodString {
+export function dateToTimePeriodString(
+  dateObject: Date | undefined
+): TimePeriodString | '' {
+  if (dateObject === undefined) {
+    return ''
+  }
+
   return Intl.DateTimeFormat('en-CA', {
     hourCycle: 'h12',
     hour: 'numeric',

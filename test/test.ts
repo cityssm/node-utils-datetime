@@ -3,10 +3,12 @@
 
 import assert from 'node:assert'
 
-import dateTimeFunctions from '../index.js'
+import dateTimeFunctions, { type DateString } from '../index.js'
+
+const testInvalidString = 'invalid string'
 
 const testDate = new Date(1970, 2 - 1, 1)
-const testDateString = '1970-02-01'
+const testDateString: DateString = '1970-02-01'
 const testDateNumber = 19700201
 
 const testInvalidDateStrings = [
@@ -86,10 +88,10 @@ describe('dateTimeFns', () => {
 
   describe('#dateToInteger()', () => {
     it(`Converts Date to ${testDateNumber}`, () => {
-      assert.strictEqual(
-        dateTimeFunctions.dateToInteger(testDate),
-        testDateNumber
-      )
+      const evaluatedNumber = dateTimeFunctions.dateToInteger(testDate)
+
+      assert.ok(dateTimeFunctions.isValidDateInteger(evaluatedNumber))
+      assert.strictEqual(evaluatedNumber, testDateNumber)
     })
   })
 
@@ -119,10 +121,10 @@ describe('dateTimeFns', () => {
 
   describe('#dateIntegerToDate()', () => {
     it(`Converts ${testDateNumber} to "${testDate.toLocaleString()}"`, () => {
-      assert.strictEqual(
-        dateTimeFunctions.dateIntegerToDate(testDateNumber).getTime(),
-        testDate.getTime()
-      )
+      const evaluatedDate = dateTimeFunctions.dateIntegerToDate(testDateNumber)
+
+      assert.ok(evaluatedDate)
+      assert.strictEqual(evaluatedDate.getTime(), testDate.getTime())
     })
 
     it('Converts null to undefined', () => {
@@ -137,27 +139,43 @@ describe('dateTimeFns', () => {
 
   describe('#dateStringToDate()', () => {
     it(`Converts "${testDateString}" to "${testDate.toLocaleString()}"`, () => {
-      assert.strictEqual(
-        dateTimeFunctions.dateStringToDate(testDateString).getTime(),
-        testDate.getTime()
-      )
+      const evaluatedDate = dateTimeFunctions.dateStringToDate(testDateString)
+
+      assert.ok(evaluatedDate)
+      assert.strictEqual(evaluatedDate.getTime(), testDate.getTime())
     })
 
     it(`Converts "${testDateString} ${testTimeString}" to "${testTimeDate.toLocaleString()}"`, () => {
+      const evaluatedDate = dateTimeFunctions.dateStringToDate(
+        testDateString,
+        testTimeString
+      )
+
+      assert.ok(evaluatedDate)
+      assert.strictEqual(evaluatedDate.getTime(), testTimeDate.getTime())
+    })
+
+    it(`Converts "${testInvalidString}" to undefined`, () => {
       assert.strictEqual(
-        dateTimeFunctions
-          .dateStringToDate(testDateString, testTimeString)
-          .getTime(),
-        testTimeDate.getTime()
+        dateTimeFunctions.dateStringToDate(testInvalidString),
+        undefined
       )
     })
   })
 
   describe('#dateStringToInteger()', () => {
     it(`Converts "${testDateString}" to ${testDateNumber}`, () => {
+      const evaluatedNumber =
+        dateTimeFunctions.dateStringToInteger(testDateString)
+
+      assert.ok(dateTimeFunctions.isValidDateInteger(evaluatedNumber))
+      assert.strictEqual(evaluatedNumber, testDateNumber)
+    })
+
+    it(`Converts "${testInvalidString}" to undefined`, () => {
       assert.strictEqual(
-        dateTimeFunctions.dateStringToInteger(testDateString),
-        testDateNumber
+        dateTimeFunctions.dateStringToInteger(testInvalidString),
+        undefined
       )
     })
   })
@@ -190,10 +208,10 @@ describe('dateTimeFns', () => {
 
   describe('#dateToTimeInteger()', () => {
     it(`Converts "${testTimeDate.toLocaleString()}" to ${testTimeNumber}`, () => {
-      assert.strictEqual(
-        dateTimeFunctions.dateToTimeInteger(testTimeDate),
-        testTimeNumber
-      )
+      const evaluatedNumber = dateTimeFunctions.dateToTimeInteger(testTimeDate)
+
+      assert.ok(dateTimeFunctions.isValidTimeInteger(evaluatedNumber))
+      assert.strictEqual(evaluatedNumber, testTimeNumber)
     })
   })
 
@@ -247,9 +265,17 @@ describe('dateTimeFns', () => {
 
   describe('#timeStringToInteger()', () => {
     it(`Converts "${testTimeString}" to ${testTimeNumber}`, () => {
+      const evaluatedNumber =
+        dateTimeFunctions.timeStringToInteger(testTimeString)
+
+      assert.ok(dateTimeFunctions.isValidTimeInteger(evaluatedNumber))
+      assert.strictEqual(evaluatedNumber, testTimeNumber)
+    })
+
+    it(`Converts "${testInvalidString}" to undefined`, () => {
       assert.strictEqual(
-        dateTimeFunctions.timeStringToInteger(testTimeString),
-        testTimeNumber
+        dateTimeFunctions.timeStringToInteger(testInvalidString),
+        undefined
       )
     })
   })

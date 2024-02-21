@@ -1,10 +1,14 @@
-import type { TimeString } from './dateTimeTypes.js'
+import { isValidTimeString } from './isValidTimeString.js'
 
 /**
  * Formats a string representing a time as a number.
- * @param {TimeString} timeString - A string representing a time.
+ * @param {string} timeString - A string representing a time.
  * @returns {number} - A number representing a time.
  */
-export function timeStringToInteger(timeString: TimeString): number {
+export function timeStringToInteger(timeString: string): number | undefined {
+  if (!isValidTimeString(timeString)) {
+    return undefined
+  }
+
   return Number.parseInt(`0${timeString}`.replaceAll(':', ''), 10)
 }

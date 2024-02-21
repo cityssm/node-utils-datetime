@@ -5,7 +5,11 @@ import type { DateString } from './dateTimeTypes.js'
  * @param {Date} dateObject - A JavaScript Date object
  * @returns {DateString} A date string.
  */
-export function dateToString(dateObject: Date): DateString {
+export function dateToString(dateObject: Date | undefined): DateString | '' {
+  if (dateToString === undefined) {
+    return ''
+  }
+
   return Intl.DateTimeFormat('fr-CA', {
     year: 'numeric',
     month: '2-digit',

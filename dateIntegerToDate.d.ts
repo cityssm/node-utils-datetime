@@ -1,2 +1,1 @@
-export declare function dateIntegerToDate(dateInteger: number, timeInteger?: number): Date;
-export declare function dateIntegerToDate(dateInteger: null | undefined | 0, timeInteger?: number): undefined;
+export declare function dateIntegerToDate(dateInteger: number | undefined | null, timeInteger?: number | undefined | null): Date | undefined;

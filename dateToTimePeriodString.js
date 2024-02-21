@@ -1,4 +1,7 @@
 export function dateToTimePeriodString(dateObject) {
+    if (dateObject === undefined) {
+        return '';
+    }
     return Intl.DateTimeFormat('en-CA', {
         hourCycle: 'h12',
         hour: 'numeric',

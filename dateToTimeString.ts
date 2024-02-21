@@ -5,7 +5,13 @@ import type { TimeString } from './dateTimeTypes.js'
  * @param {Date} dateObject - A JavaScript Date object.
  * @returns {TimeString} - A string representing the time.
  */
-export function dateToTimeString(dateObject: Date): TimeString {
+export function dateToTimeString(
+  dateObject: Date | undefined
+): TimeString | '' {
+  if (dateObject === undefined) {
+    return ''
+  }
+
   return Intl.DateTimeFormat('en-CA', {
     hourCycle: 'h24',
     hour: '2-digit',

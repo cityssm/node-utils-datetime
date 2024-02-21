@@ -8,8 +8,8 @@ import { dateToTimePeriodString } from './dateToTimePeriodString.js'
  * @returns {TimePeriodString} - A string representing a time.
  */
 export function timeIntegerToPeriodString(
-  timeInteger: number
-): TimePeriodString {
+  timeInteger = 0
+): TimePeriodString | '' {
   // eslint-disable-next-line unicorn/numeric-separators-style
   return dateToTimePeriodString(dateIntegerToDate(19700101, timeInteger))
 }

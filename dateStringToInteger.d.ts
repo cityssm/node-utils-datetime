@@ -1,2 +1,1 @@
-import type { DateString } from './dateTimeTypes.js';
-export declare function dateStringToInteger(dateString: DateString): number;
+export declare function dateStringToInteger(dateString: string): number | undefined;
