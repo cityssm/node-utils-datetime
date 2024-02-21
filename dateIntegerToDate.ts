@@ -1,4 +1,5 @@
 import { isValidDateInteger } from './isValidDateInteger.js'
+import { isValidTimeInteger } from './isValidTimeInteger.js'
 
 export function dateIntegerToDate<
   D extends number | undefined | null,
@@ -24,7 +25,7 @@ export function dateIntegerToDate(
   dateInteger: number | undefined | null,
   timeInteger: number | undefined | null = 0
 ): Date | undefined {
-  if (!isValidDateInteger(dateInteger)) {
+  if (!isValidDateInteger(dateInteger) || !isValidTimeInteger(timeInteger)) {
     return undefined
   }
 
