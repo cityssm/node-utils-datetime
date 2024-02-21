@@ -7,6 +7,10 @@ import { dateToString } from './dateToString.js';
 import { dateToTimeInteger } from './dateToTimeInteger.js';
 import { dateToTimePeriodString } from './dateToTimePeriodString.js';
 import { dateToTimeString } from './dateToTimeString.js';
+import { isValidDateInteger } from './isValidDateInteger.js';
+import { isValidDateString } from './isValidDateString.js';
+import { isValidTimeInteger } from './isValidTimeInteger.js';
+import { isValidTimeString } from './isValidTimeString.js';
 import { timeIntegerToPeriodString } from './timeIntegerToPeriodString.js';
 import { timeIntegerToString } from './timeIntegerToString.js';
 import { timeStringToInteger } from './timeStringToInteger.js';
@@ -45,6 +49,10 @@ export { dateToTimePeriodString } from './dateToTimePeriodString.js';
 export { timeIntegerToString } from './timeIntegerToString.js';
 export { timeIntegerToPeriodString } from './timeIntegerToPeriodString.js';
 export { timeStringToInteger } from './timeStringToInteger.js';
+export { isValidDateInteger } from './isValidDateInteger.js';
+export { isValidDateString } from './isValidDateString.js';
+export { isValidTimeInteger } from './isValidTimeInteger.js';
+export { isValidTimeString } from './isValidTimeString.js';
 export default {
     months,
     days,
@@ -57,6 +65,10 @@ export default {
     dateToTimeInteger,
     dateToTimeString,
     dateToTimePeriodString,
+    isValidDateInteger,
+    isValidDateString,
+    isValidTimeInteger,
+    isValidTimeString,
     timeIntegerToString,
     timeIntegerToPeriodString,
     timeStringToInteger

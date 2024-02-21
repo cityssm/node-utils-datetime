@@ -1,6 +1,14 @@
+import type { DateString, TimeString } from './dateTimeTypes.js'
+
+/**
+ * Formats a string date and time as a JavaScript Date object.
+ * @param {DateString} dateString - A string representing a date.
+ * @param {TimeString} timeString - A string representing a time.
+ * @returns {Date} - A JavaScript Date object.
+ */
 export function dateStringToDate(
-  dateString: string,
-  timeString = '00:00'
+  dateString: DateString,
+  timeString: TimeString = '00:00'
 ): Date {
   const datePieces = dateString.split('-')
   const timePieces = timeString.split(':')

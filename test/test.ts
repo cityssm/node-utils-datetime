@@ -5,31 +5,110 @@ import assert from 'node:assert'
 
 import dateTimeFunctions from '../index.js'
 
+const testDate = new Date(1970, 2 - 1, 1)
+const testDateString = '1970-02-01'
+const testDateNumber = 19700201
+
+const testInvalidDateStrings = [
+  '19700101',
+  '010101',
+  'abcd',
+  undefined,
+  // eslint-disable-next-line unicorn/no-null
+  null,
+  0,
+  {}
+]
+
+const testInvalidDateNumbers = [
+  -20230101,
+  5,
+  20230101.5,
+  '010101',
+  'abcd',
+  undefined,
+  // eslint-disable-next-line unicorn/no-null
+  null,
+  {}
+]
+
+const testTimeDate = new Date(1970, 2 - 1, 1, 4, 56)
+const testTimeString = '04:56'
+const testTimePeriodString = '4:56 a.m.'
+const testTimeNumber = 456
+
+const testInvalidTimeStrings = [
+  '456',
+  'abcd',
+  undefined,
+  // eslint-disable-next-line unicorn/no-null
+  null,
+  0,
+  {}
+]
+
+const testInvalidTimeNumbers = [
+  -45,
+  3000,
+  'abcd',
+  undefined,
+  // eslint-disable-next-line unicorn/no-null
+  null,
+  {}
+]
+
 describe('dateTimeFns', () => {
+  describe('#isValidDateString', () => {
+    it(`Returns true for "${testDateString}"`, () => {
+      assert.ok(dateTimeFunctions.isValidDateString(testDateString))
+    })
+
+    for (const invalidDateString of testInvalidDateStrings) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      it(`Returns false for "${invalidDateString}"`, () => {
+        assert.ok(!dateTimeFunctions.isValidDateString(invalidDateString))
+      })
+    }
+  })
+
+  describe('#isValidDateInteger', () => {
+    it(`Returns true for ${testDateNumber}`, () => {
+      assert.ok(dateTimeFunctions.isValidDateInteger(testDateNumber))
+    })
+
+    for (const testInvalidDateNumber of testInvalidDateNumbers) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      it(`Returns false for "${testInvalidDateNumber}"`, () => {
+        assert.ok(!dateTimeFunctions.isValidDateInteger(testInvalidDateNumber))
+      })
+    }
+  })
+
   describe('#dateToInteger()', () => {
-    it('Converts new Date(1970, 1 - 1, 1) to 19700101', () => {
+    it(`Converts Date to ${testDateNumber}`, () => {
       assert.strictEqual(
-        dateTimeFunctions.dateToInteger(new Date(1970, 1 - 1, 1)),
-        19700101
+        dateTimeFunctions.dateToInteger(testDate),
+        testDateNumber
       )
     })
   })
 
   describe('#dateToString()', () => {
-    it('Converts Date(1970, 1 - 1, 1) to "1970-01-01"', () => {
-      assert.strictEqual(
-        dateTimeFunctions.dateToString(new Date(1970, 1 - 1, 1)),
-        '1970-01-01'
-      )
+    it(`Converts "${testDate.toLocaleString()}" to "${testDateString}"`, () => {
+      const evaluatedString = dateTimeFunctions.dateToString(testDate)
+
+      assert.ok(dateTimeFunctions.isValidDateString(evaluatedString))
+      assert.strictEqual(evaluatedString, testDateString)
     })
   })
 
   describe('#dateIntegerToString()', () => {
-    it('Converts 19700101 to "1970-01-01"', () => {
-      assert.strictEqual(
-        dateTimeFunctions.dateIntegerToString(19700101),
-        '1970-01-01'
-      )
+    it(`Converts ${testDateNumber} to "${testDateString}"`, () => {
+      const evaluatedString =
+        dateTimeFunctions.dateIntegerToString(testDateNumber)
+
+      assert.ok(dateTimeFunctions.isValidDateString(evaluatedString))
+      assert.strictEqual(evaluatedString, testDateString)
     })
 
     it('Converts null to ""', () => {
@@ -39,10 +118,10 @@ describe('dateTimeFns', () => {
   })
 
   describe('#dateIntegerToDate()', () => {
-    it('Converts 19700101 to Date(1970, 1 - 1, 1)', () => {
+    it(`Converts ${testDateNumber} to "${testDate.toLocaleString()}"`, () => {
       assert.strictEqual(
-        dateTimeFunctions.dateIntegerToDate(19700101).getTime(),
-        new Date(1970, 1 - 1, 1).getTime()
+        dateTimeFunctions.dateIntegerToDate(testDateNumber).getTime(),
+        testDate.getTime()
       )
     })
 
@@ -57,62 +136,92 @@ describe('dateTimeFns', () => {
   })
 
   describe('#dateStringToDate()', () => {
-    it('Converts "1970-01-01" to Date(1970, 1 - 1, 1)', () => {
+    it(`Converts "${testDateString}" to "${testDate.toLocaleString()}"`, () => {
       assert.strictEqual(
-        dateTimeFunctions.dateStringToDate('1970-01-01').getTime(),
-        new Date(1970, 1 - 1, 1).getTime()
+        dateTimeFunctions.dateStringToDate(testDateString).getTime(),
+        testDate.getTime()
       )
     })
 
-    it('Converts "1970-01-01 4:56" to Date(1970, 1 - 1, 1, 4, 56)', () => {
+    it(`Converts "${testDateString} ${testTimeString}" to "${testTimeDate.toLocaleString()}"`, () => {
       assert.strictEqual(
-        dateTimeFunctions.dateStringToDate('1970-01-01', '4:56').getTime(),
-        new Date(1970, 1 - 1, 1, 4, 56).getTime()
+        dateTimeFunctions
+          .dateStringToDate(testDateString, testTimeString)
+          .getTime(),
+        testTimeDate.getTime()
       )
     })
   })
 
   describe('#dateStringToInteger()', () => {
-    it('Converts "1970-01-01" to 19700101', () => {
+    it(`Converts "${testDateString}" to ${testDateNumber}`, () => {
       assert.strictEqual(
-        dateTimeFunctions.dateStringToInteger('1970-01-01'),
-        19700101
+        dateTimeFunctions.dateStringToInteger(testDateString),
+        testDateNumber
       )
     })
   })
 
+  describe('#isValidTimeString', () => {
+    it(`Returns true for "${testTimeString}"`, () => {
+      assert.ok(dateTimeFunctions.isValidTimeString(testTimeString))
+    })
+
+    for (const invalidTimeString of testInvalidTimeStrings) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      it(`Returns false for "${invalidTimeString}"`, () => {
+        assert.ok(!dateTimeFunctions.isValidTimeString(invalidTimeString))
+      })
+    }
+  })
+
+  describe('#isValidTimeInteger', () => {
+    it(`Returns true for ${testTimeNumber}`, () => {
+      assert.ok(dateTimeFunctions.isValidTimeInteger(testTimeNumber))
+    })
+
+    for (const testInvalidTimeNumber of testInvalidTimeNumbers) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      it(`Returns false for "${testInvalidTimeNumber}"`, () => {
+        assert.ok(!dateTimeFunctions.isValidTimeInteger(testInvalidTimeNumber))
+      })
+    }
+  })
+
   describe('#dateToTimeInteger()', () => {
-    it('Converts new Date(1970, 1 - 1, 1, 1, 23) to 123', () => {
+    it(`Converts "${testTimeDate.toLocaleString()}" to ${testTimeNumber}`, () => {
       assert.strictEqual(
-        dateTimeFunctions.dateToTimeInteger(new Date(1970, 1 - 1, 1, 1, 23)),
-        123
+        dateTimeFunctions.dateToTimeInteger(testTimeDate),
+        testTimeNumber
       )
     })
   })
 
   describe('#dateToTimeString()', () => {
-    it('Converts new Date(1970, 1 - 1, 1, 1, 23) to "01:23"', () => {
-      assert.strictEqual(
-        dateTimeFunctions.dateToTimeString(new Date(1970, 1 - 1, 1, 1, 23)),
-        '01:23'
-      )
+    it(`Converts "${testTimeDate.toLocaleString()}" to "${testTimeString}"`, () => {
+      const evaluatedString = dateTimeFunctions.dateToTimeString(testTimeDate)
+
+      assert.ok(dateTimeFunctions.isValidTimeString(evaluatedString))
+      assert.strictEqual(evaluatedString, testTimeString)
     })
   })
 
   describe('#dateToTimePeriodString()', () => {
-    it('Converts new Date(1970, 1 - 1, 1, 1, 23) to "01:23"', () => {
+    it(`Converts "${testTimeDate.toLocaleString()}" to "${testTimePeriodString}"`, () => {
       assert.strictEqual(
-        dateTimeFunctions.dateToTimePeriodString(
-          new Date(1970, 1 - 1, 1, 1, 23)
-        ),
-        '1:23 a.m.'
+        dateTimeFunctions.dateToTimePeriodString(testTimeDate),
+        testTimePeriodString
       )
     })
   })
 
   describe('#timeIntegerToString()', () => {
-    it('Converts 123 to "01:23"', () => {
-      assert.strictEqual(dateTimeFunctions.timeIntegerToString(123), '01:23')
+    it(`Converts ${testTimeNumber} to "${testTimeString}"`, () => {
+      const evaluatedString =
+        dateTimeFunctions.timeIntegerToString(testTimeNumber)
+
+      assert.ok(dateTimeFunctions.isValidTimeString(evaluatedString))
+      assert.strictEqual(evaluatedString, testTimeString)
     })
 
     it('Converts 0 to "00:00"', () => {
@@ -121,10 +230,10 @@ describe('dateTimeFns', () => {
   })
 
   describe('#timeIntegerToPeriodString()', () => {
-    it('Converts 123 to "1:23 a.m."', () => {
+    it(`Converts ${testTimeNumber} to "${testTimePeriodString}"`, () => {
       assert.strictEqual(
-        dateTimeFunctions.timeIntegerToPeriodString(123),
-        '1:23 a.m.'
+        dateTimeFunctions.timeIntegerToPeriodString(testTimeNumber),
+        testTimePeriodString
       )
     })
 
@@ -137,8 +246,11 @@ describe('dateTimeFns', () => {
   })
 
   describe('#timeStringToInteger()', () => {
-    it('Converts "01:23" to 123', () => {
-      assert.strictEqual(dateTimeFunctions.timeStringToInteger('01:23'), 123)
+    it(`Converts "${testTimeString}" to ${testTimeNumber}`, () => {
+      assert.strictEqual(
+        dateTimeFunctions.timeStringToInteger(testTimeString),
+        testTimeNumber
+      )
     })
   })
 })

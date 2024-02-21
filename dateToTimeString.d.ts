@@ -1,1 +1,2 @@
-export declare function dateToTimeString(dateObject: Date): string;
+import type { TimeString } from './dateTimeTypes.js';
+export declare function dateToTimeString(dateObject: Date): TimeString;

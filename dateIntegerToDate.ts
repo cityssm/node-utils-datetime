@@ -1,3 +1,5 @@
+import { isValidDateInteger } from './isValidDateInteger.js'
+
 export function dateIntegerToDate(
   dateInteger: number,
   timeInteger?: number
@@ -7,20 +9,20 @@ export function dateIntegerToDate(
   timeInteger?: number
 ): undefined
 
+/**
+ * @param {number | undefined | null} dateInteger - A number representing a date (ex. 20241231)
+ * @param {number} timeInteger - A number representing a time (ex. 2359)
+ * @returns {Date | undefined} - A Date object (ex. '2024-12-31 23:59')
+ */
 export function dateIntegerToDate(
   dateInteger: number | undefined | null,
-  timeInteger = 0
+  timeInteger: number | undefined | null = 0
 ): Date | undefined {
-  if (
-    dateInteger === null ||
-    dateInteger === undefined ||
-    Number.isNaN(dateInteger) ||
-    dateInteger === 0
-  ) {
+  if (!isValidDateInteger(dateInteger)) {
     return
   }
 
-  const dateString = ('00000000' + dateInteger.toString()).slice(-8)
+  const dateString = ('00000000' + (dateInteger as number).toString()).slice(-8)
 
   const timeString = ('0000' + (timeInteger ?? 0).toString()).slice(-4)
 

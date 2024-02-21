@@ -1,8 +1,6 @@
+import { isValidDateInteger } from './isValidDateInteger.js';
 export function dateIntegerToDate(dateInteger, timeInteger = 0) {
-    if (dateInteger === null ||
-        dateInteger === undefined ||
-        Number.isNaN(dateInteger) ||
-        dateInteger === 0) {
+    if (!isValidDateInteger(dateInteger)) {
         return;
     }
     const dateString = ('00000000' + dateInteger.toString()).slice(-8);
