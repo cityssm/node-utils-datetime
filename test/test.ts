@@ -1,5 +1,5 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable sonarjs/no-identical-expressions, unicorn/numeric-separators-style */
+/* eslint-disable sonarjs/no-duplicate-string, sonarjs/no-identical-expressions, unicorn/numeric-separators-style */
 
 import assert from 'node:assert'
 
@@ -93,6 +93,14 @@ describe('dateTimeFns', () => {
       assert.ok(dateTimeFunctions.isValidDateInteger(evaluatedNumber))
       assert.strictEqual(evaluatedNumber, testDateNumber)
     })
+
+    it('Converts undefined to ""', () => {
+      assert.strictEqual(
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        dateTimeFunctions.dateToInteger(undefined),
+        ''
+      )
+    })
   })
 
   describe('#dateToString()', () => {
@@ -101,6 +109,14 @@ describe('dateTimeFns', () => {
 
       assert.ok(dateTimeFunctions.isValidDateString(evaluatedString))
       assert.strictEqual(evaluatedString, testDateString)
+    })
+
+    it('Converts undefined to ""', () => {
+      assert.strictEqual(
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        dateTimeFunctions.dateToString(undefined),
+        ''
+      )
     })
   })
 
@@ -222,6 +238,11 @@ describe('dateTimeFns', () => {
       assert.ok(dateTimeFunctions.isValidTimeString(evaluatedString))
       assert.strictEqual(evaluatedString, testTimeString)
     })
+
+    it('Converts undefined to ""', () => {
+      // eslint-disable-next-line unicorn/no-useless-undefined
+      assert.strictEqual(dateTimeFunctions.dateToTimeString(undefined), '')
+    })
   })
 
   describe('#dateToTimePeriodString()', () => {
@@ -229,6 +250,14 @@ describe('dateTimeFns', () => {
       assert.strictEqual(
         dateTimeFunctions.dateToTimePeriodString(testTimeDate),
         testTimePeriodString
+      )
+    })
+
+    it('Converts undefined to ""', () => {
+      assert.strictEqual(
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        dateTimeFunctions.dateToTimePeriodString(undefined),
+        ''
       )
     })
   })

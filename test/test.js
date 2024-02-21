@@ -70,12 +70,18 @@ describe('dateTimeFns', () => {
             assert.ok(dateTimeFunctions.isValidDateInteger(evaluatedNumber));
             assert.strictEqual(evaluatedNumber, testDateNumber);
         });
+        it('Converts undefined to ""', () => {
+            assert.strictEqual(dateTimeFunctions.dateToInteger(undefined), '');
+        });
     });
     describe('#dateToString()', () => {
         it(`Converts "${testDate.toLocaleString()}" to "${testDateString}"`, () => {
             const evaluatedString = dateTimeFunctions.dateToString(testDate);
             assert.ok(dateTimeFunctions.isValidDateString(evaluatedString));
             assert.strictEqual(evaluatedString, testDateString);
+        });
+        it('Converts undefined to ""', () => {
+            assert.strictEqual(dateTimeFunctions.dateToString(undefined), '');
         });
     });
     describe('#dateIntegerToString()', () => {
@@ -159,10 +165,16 @@ describe('dateTimeFns', () => {
             assert.ok(dateTimeFunctions.isValidTimeString(evaluatedString));
             assert.strictEqual(evaluatedString, testTimeString);
         });
+        it('Converts undefined to ""', () => {
+            assert.strictEqual(dateTimeFunctions.dateToTimeString(undefined), '');
+        });
     });
     describe('#dateToTimePeriodString()', () => {
         it(`Converts "${testTimeDate.toLocaleString()}" to "${testTimePeriodString}"`, () => {
             assert.strictEqual(dateTimeFunctions.dateToTimePeriodString(testTimeDate), testTimePeriodString);
+        });
+        it('Converts undefined to ""', () => {
+            assert.strictEqual(dateTimeFunctions.dateToTimePeriodString(undefined), '');
         });
     });
     describe('#timeIntegerToString()', () => {

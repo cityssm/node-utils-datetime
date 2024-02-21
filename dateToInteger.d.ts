@@ -1,1 +1,1 @@
-export declare function dateToInteger(dateObject: Date): number;
+export declare function dateToInteger(dateObject: Date | undefined): number | undefined;

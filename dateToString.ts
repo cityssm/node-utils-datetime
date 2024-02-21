@@ -6,7 +6,7 @@ import type { DateString } from './dateTimeTypes.js'
  * @returns {DateString} A date string.
  */
 export function dateToString(dateObject: Date | undefined): DateString | '' {
-  if (dateToString === undefined) {
+  if (dateObject === undefined) {
     return ''
   }
 

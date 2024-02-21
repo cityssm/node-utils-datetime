@@ -1,5 +1,5 @@
 export function dateToString(dateObject) {
-    if (dateToString === undefined) {
+    if (dateObject === undefined) {
         return '';
     }
     return Intl.DateTimeFormat('fr-CA', {
