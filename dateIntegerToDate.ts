@@ -1,5 +1,20 @@
 import { isValidDateInteger } from './isValidDateInteger.js'
 
+export function dateIntegerToDate<
+  D extends number | undefined | null,
+  T extends number | undefined | null
+>(dateInteger: D, timeInteger?: T): Date | undefined
+
+export function dateIntegerToDate(
+  dateInteger: number,
+  timeInteger?: number
+): Date | undefined
+
+export function dateIntegerToDate(
+  dateInteger: undefined | null,
+  timeInteger?: undefined | null
+): undefined
+
 /**
  * @param {number | undefined | null} dateInteger - A number representing a date (ex. 20241231)
  * @param {number} timeInteger - A number representing a time (ex. 2359)

@@ -3,7 +3,11 @@ import type { DateString } from './dateTimeTypes.js'
 import { dateToString } from './dateToString.js'
 import { isValidDateInteger } from './isValidDateInteger.js'
 
-export function dateIntegerToString(dateInteger: number): DateString
+export function dateIntegerToString<D extends number | undefined | null>(
+  dateInteger: D
+): DateString | ''
+
+export function dateIntegerToString(dateInteger: number): DateString | ''
 export function dateIntegerToString(dateInteger: null | undefined | 0): ''
 
 /**

@@ -1,5 +1,12 @@
 import type { DateString } from './dateTimeTypes.js'
 
+export function dateToString<D extends Date | undefined>(
+  dateObject: D
+): DateString | ''
+
+export function dateToString(dateObject: Date): DateString
+export function dateToString(dateObject: undefined): ''
+
 /**
  * Formats a JavaScript Date object as a date string.
  * @param {Date} dateObject - A JavaScript Date object

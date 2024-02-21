@@ -1,5 +1,12 @@
 import type { TimePeriodString } from './dateTimeTypes.js'
 
+export function dateToTimePeriodString<D extends Date | undefined>(
+  dateObject: D
+): TimePeriodString | ''
+
+export function dateToTimePeriodString(dateObject: Date): TimePeriodString
+export function dateToTimePeriodString(dateObject: undefined): ''
+
 /**
  * Formats a JavaScript Date as a time period string.
  * @param {Date} dateObject - A JavaScript Date object.
