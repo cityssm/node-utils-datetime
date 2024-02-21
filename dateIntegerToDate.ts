@@ -19,7 +19,7 @@ export function dateIntegerToDate(
   timeInteger: number | undefined | null = 0
 ): Date | undefined {
   if (!isValidDateInteger(dateInteger)) {
-    return
+    return undefined
   }
 
   const dateString = ('00000000' + (dateInteger as number).toString()).slice(-8)

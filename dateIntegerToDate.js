@@ -1,7 +1,7 @@
 import { isValidDateInteger } from './isValidDateInteger.js';
 export function dateIntegerToDate(dateInteger, timeInteger = 0) {
     if (!isValidDateInteger(dateInteger)) {
-        return;
+        return undefined;
     }
     const dateString = ('00000000' + dateInteger.toString()).slice(-8);
     const timeString = ('0000' + (timeInteger ?? 0).toString()).slice(-4);
