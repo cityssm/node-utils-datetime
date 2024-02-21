@@ -7,7 +7,7 @@ export function dateToTimeInteger(dateObject: undefined): undefined
 
 /**
  * Formats the time in a JavaScript Date as a number.
- * @param {Date} dateObject - A JavaString Date object.
+ * @param {Date} dateObject - A JavaScript Date object.
  * @returns {number} - A number representing a time.
  */
 export function dateToTimeInteger(
