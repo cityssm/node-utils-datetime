@@ -229,6 +229,14 @@ describe('dateTimeFns', () => {
       assert.ok(dateTimeFunctions.isValidTimeInteger(evaluatedNumber))
       assert.strictEqual(evaluatedNumber, testTimeNumber)
     })
+
+    it('Converts undefined to undefined', () => {
+      assert.strictEqual(
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        dateTimeFunctions.dateToTimeInteger(undefined),
+        undefined
+      )
+    })
   })
 
   describe('#dateToTimeString()', () => {

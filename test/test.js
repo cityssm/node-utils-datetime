@@ -158,6 +158,9 @@ describe('dateTimeFns', () => {
             assert.ok(dateTimeFunctions.isValidTimeInteger(evaluatedNumber));
             assert.strictEqual(evaluatedNumber, testTimeNumber);
         });
+        it('Converts undefined to undefined', () => {
+            assert.strictEqual(dateTimeFunctions.dateToTimeInteger(undefined), undefined);
+        });
     });
     describe('#dateToTimeString()', () => {
         it(`Converts "${testTimeDate.toLocaleString()}" to "${testTimeString}"`, () => {
