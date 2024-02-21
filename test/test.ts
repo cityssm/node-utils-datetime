@@ -282,6 +282,14 @@ describe('dateTimeFns', () => {
     it('Converts 0 to "00:00"', () => {
       assert.strictEqual(dateTimeFunctions.timeIntegerToString(0), '00:00')
     })
+
+    it('Converts undefined to "00:00"', () => {
+      assert.strictEqual(
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        dateTimeFunctions.timeIntegerToString(undefined),
+        '00:00'
+      )
+    })
   })
 
   describe('#timeIntegerToPeriodString()', () => {
