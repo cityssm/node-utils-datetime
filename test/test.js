@@ -70,8 +70,8 @@ describe('dateTimeFns', () => {
             assert.ok(dateTimeFunctions.isValidDateInteger(evaluatedNumber));
             assert.strictEqual(evaluatedNumber, testDateNumber);
         });
-        it('Converts undefined to ""', () => {
-            assert.strictEqual(dateTimeFunctions.dateToInteger(undefined), '');
+        it('Converts undefined to undefined', () => {
+            assert.strictEqual(dateTimeFunctions.dateToInteger(undefined), undefined);
         });
     });
     describe('#dateToString()', () => {

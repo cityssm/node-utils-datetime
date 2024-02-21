@@ -94,11 +94,11 @@ describe('dateTimeFns', () => {
       assert.strictEqual(evaluatedNumber, testDateNumber)
     })
 
-    it('Converts undefined to ""', () => {
+    it('Converts undefined to undefined', () => {
       assert.strictEqual(
         // eslint-disable-next-line unicorn/no-useless-undefined
         dateTimeFunctions.dateToInteger(undefined),
-        ''
+        undefined
       )
     })
   })
