@@ -9,7 +9,7 @@ import { isValidTimeString } from './isValidTimeString.js'
  */
 export function dateStringToDate(
   dateString: string,
-  timeString = '00:00'
+  timeString: string = '00:00'
 ): Date | undefined {
   if (!isValidDateString(dateString) || !isValidTimeString(timeString)) {
     return undefined
