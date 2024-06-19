@@ -17,9 +17,9 @@ export function dateIntegerToDate(
 ): undefined
 
 /**
- * @param {number | undefined | null} dateInteger - A number representing a date (ex. 20241231)
- * @param {number} timeInteger - A number representing a time (ex. 2359)
- * @returns {Date | undefined} - A Date object (ex. '2024-12-31 23:59')
+ * @param dateInteger - A number representing a date (ex. 20241231)
+ * @param timeInteger - A number representing a time (ex. 2359)
+ * @returns - A Date object (ex. '2024-12-31 23:59')
  */
 export function dateIntegerToDate(
   dateInteger: number | undefined | null,

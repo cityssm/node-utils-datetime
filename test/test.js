@@ -1,4 +1,5 @@
 import assert from 'node:assert';
+import { describe, it } from 'node:test';
 import dateTimeFunctions from '../index.js';
 const testInvalidString = 'invalid string';
 const testDate = new Date(1970, 2 - 1, 1);
@@ -43,171 +44,177 @@ const testInvalidTimeNumbers = [
     null,
     {}
 ];
-describe('dateTimeFns', () => {
-    describe('#isValidDateString', () => {
-        it(`Returns true for "${testDateString}"`, () => {
+await describe('dateTimeFns', async () => {
+    await describe('#isValidDateString', async () => {
+        await it(`Returns true for "${testDateString}"`, () => {
             assert.ok(dateTimeFunctions.isValidDateString(testDateString));
         });
         for (const invalidDateString of testInvalidDateStrings) {
-            it(`Returns false for "${invalidDateString}"`, () => {
+            await it(`Returns false for "${invalidDateString}"`, () => {
                 assert.ok(!dateTimeFunctions.isValidDateString(invalidDateString));
             });
         }
     });
-    describe('#isValidDateInteger', () => {
-        it(`Returns true for ${testDateNumber}`, () => {
+    await describe('#isValidDateInteger', async () => {
+        await it(`Returns true for ${testDateNumber}`, () => {
             assert.ok(dateTimeFunctions.isValidDateInteger(testDateNumber));
         });
         for (const testInvalidDateNumber of testInvalidDateNumbers) {
-            it(`Returns false for "${testInvalidDateNumber}"`, () => {
+            await it(`Returns false for "${testInvalidDateNumber}"`, () => {
                 assert.ok(!dateTimeFunctions.isValidDateInteger(testInvalidDateNumber));
             });
         }
     });
-    describe('#dateToInteger()', () => {
-        it(`Converts Date to ${testDateNumber}`, () => {
+    await describe('#dateToInteger()', async () => {
+        await it(`Converts Date to ${testDateNumber}`, () => {
             const evaluatedNumber = dateTimeFunctions.dateToInteger(testDate);
             assert.ok(dateTimeFunctions.isValidDateInteger(evaluatedNumber));
             assert.strictEqual(evaluatedNumber, testDateNumber);
         });
-        it('Converts undefined to undefined', () => {
+        await it('Converts undefined to undefined', () => {
             assert.strictEqual(dateTimeFunctions.dateToInteger(undefined), undefined);
         });
     });
-    describe('#dateToString()', () => {
-        it(`Converts "${testDate.toLocaleString()}" to "${testDateString}"`, () => {
+    await describe('#dateToString()', async () => {
+        await it(`Converts "${testDate.toLocaleString()}" to "${testDateString}"`, () => {
             const evaluatedString = dateTimeFunctions.dateToString(testDate);
             assert.ok(dateTimeFunctions.isValidDateString(evaluatedString));
             assert.strictEqual(evaluatedString, testDateString);
         });
-        it('Converts undefined to ""', () => {
+        await it('Converts undefined to ""', () => {
             assert.strictEqual(dateTimeFunctions.dateToString(undefined), '');
         });
     });
-    describe('#dateIntegerToString()', () => {
-        it(`Converts ${testDateNumber} to "${testDateString}"`, () => {
+    await describe('#dateIntegerToString()', async () => {
+        await it(`Converts ${testDateNumber} to "${testDateString}"`, () => {
             const evaluatedString = dateTimeFunctions.dateIntegerToString(testDateNumber);
             assert.ok(dateTimeFunctions.isValidDateString(evaluatedString));
             assert.strictEqual(evaluatedString, testDateString);
         });
-        it('Converts null to ""', () => {
+        await it('Converts null to ""', () => {
             assert.strictEqual(dateTimeFunctions.dateIntegerToString(null), '');
         });
     });
-    describe('#dateIntegerToDate()', () => {
-        it(`Converts ${testDateNumber} to "${testDate.toLocaleString()}"`, () => {
+    await describe('#dateIntegerToDate()', async () => {
+        await it(`Converts ${testDateNumber} to "${testDate.toLocaleString()}"`, () => {
             const evaluatedDate = dateTimeFunctions.dateIntegerToDate(testDateNumber);
             assert.ok(evaluatedDate);
             assert.strictEqual(evaluatedDate.getTime(), testDate.getTime());
         });
-        it('Converts null to undefined', () => {
+        await it('Converts null to undefined', () => {
             assert.strictEqual(dateTimeFunctions.dateIntegerToDate(null), undefined);
         });
-        it('Converts 0 to null', () => {
+        await it('Converts 0 to null', () => {
             assert.strictEqual(dateTimeFunctions.dateIntegerToDate(0), undefined);
         });
     });
-    describe('#dateStringToDate()', () => {
-        it(`Converts "${testDateString}" to "${testDate.toLocaleString()}"`, () => {
+    await describe('#dateStringToDate()', async () => {
+        await it(`Converts "${testDateString}" to "${testDate.toLocaleString()}"`, () => {
             const evaluatedDate = dateTimeFunctions.dateStringToDate(testDateString);
             assert.ok(evaluatedDate);
             assert.strictEqual(evaluatedDate.getTime(), testDate.getTime());
         });
-        it(`Converts "${testDateString} ${testTimeString}" to "${testTimeDate.toLocaleString()}"`, () => {
+        await it(`Converts "${testDateString} ${testTimeString}" to "${testTimeDate.toLocaleString()}"`, () => {
             const evaluatedDate = dateTimeFunctions.dateStringToDate(testDateString, testTimeString);
             assert.ok(evaluatedDate);
             assert.strictEqual(evaluatedDate.getTime(), testTimeDate.getTime());
         });
-        it(`Converts "${testInvalidString}" to undefined`, () => {
+        await it(`Converts "${testInvalidString}" to undefined`, () => {
             assert.strictEqual(dateTimeFunctions.dateStringToDate(testInvalidString), undefined);
         });
     });
-    describe('#dateStringToInteger()', () => {
-        it(`Converts "${testDateString}" to ${testDateNumber}`, () => {
+    await describe('#dateStringToInteger()', async () => {
+        await it(`Converts "${testDateString}" to ${testDateNumber}`, () => {
             const evaluatedNumber = dateTimeFunctions.dateStringToInteger(testDateString);
             assert.ok(dateTimeFunctions.isValidDateInteger(evaluatedNumber));
             assert.strictEqual(evaluatedNumber, testDateNumber);
         });
-        it(`Converts "${testInvalidString}" to undefined`, () => {
+        await it(`Converts "${testInvalidString}" to undefined`, () => {
             assert.strictEqual(dateTimeFunctions.dateStringToInteger(testInvalidString), undefined);
         });
     });
-    describe('#isValidTimeString', () => {
-        it(`Returns true for "${testTimeString}"`, () => {
+    await describe('#isValidTimeString', async () => {
+        await it(`Returns true for "${testTimeString}"`, () => {
             assert.ok(dateTimeFunctions.isValidTimeString(testTimeString));
         });
         for (const invalidTimeString of testInvalidTimeStrings) {
-            it(`Returns false for "${invalidTimeString}"`, () => {
+            await it(`Returns false for "${invalidTimeString}"`, () => {
                 assert.ok(!dateTimeFunctions.isValidTimeString(invalidTimeString));
             });
         }
     });
-    describe('#isValidTimeInteger', () => {
-        it(`Returns true for ${testTimeNumber}`, () => {
+    await describe('#isValidTimeInteger', async () => {
+        await it(`Returns true for ${testTimeNumber}`, () => {
             assert.ok(dateTimeFunctions.isValidTimeInteger(testTimeNumber));
         });
         for (const testInvalidTimeNumber of testInvalidTimeNumbers) {
-            it(`Returns false for "${testInvalidTimeNumber}"`, () => {
+            await it(`Returns false for "${testInvalidTimeNumber}"`, () => {
                 assert.ok(!dateTimeFunctions.isValidTimeInteger(testInvalidTimeNumber));
             });
         }
     });
-    describe('#dateToTimeInteger()', () => {
-        it(`Converts "${testTimeDate.toLocaleString()}" to ${testTimeNumber}`, () => {
+    await describe('#dateToTimeInteger()', async () => {
+        await it(`Converts "${testTimeDate.toLocaleString()}" to ${testTimeNumber}`, () => {
             const evaluatedNumber = dateTimeFunctions.dateToTimeInteger(testTimeDate);
             assert.ok(dateTimeFunctions.isValidTimeInteger(evaluatedNumber));
             assert.strictEqual(evaluatedNumber, testTimeNumber);
         });
-        it('Converts undefined to undefined', () => {
+        await it('Converts undefined to undefined', () => {
             assert.strictEqual(dateTimeFunctions.dateToTimeInteger(undefined), undefined);
         });
     });
-    describe('#dateToTimeString()', () => {
-        it(`Converts "${testTimeDate.toLocaleString()}" to "${testTimeString}"`, () => {
+    await describe('#dateToTimeString()', async () => {
+        await it(`Converts "${testTimeDate.toLocaleString()}" to "${testTimeString}"`, () => {
             const evaluatedString = dateTimeFunctions.dateToTimeString(testTimeDate);
             assert.ok(dateTimeFunctions.isValidTimeString(evaluatedString));
             assert.strictEqual(evaluatedString, testTimeString);
         });
-        it('Converts undefined to ""', () => {
+        await it('Converts undefined to ""', () => {
             assert.strictEqual(dateTimeFunctions.dateToTimeString(undefined), '');
         });
     });
-    describe('#dateToTimePeriodString()', () => {
-        it(`Converts "${testTimeDate.toLocaleString()}" to "${testTimePeriodString}"`, () => {
+    await describe('#dateToTimePeriodString()', async () => {
+        await it(`Converts "${testTimeDate.toLocaleString()}" to "${testTimePeriodString}"`, () => {
             assert.strictEqual(dateTimeFunctions.dateToTimePeriodString(testTimeDate), testTimePeriodString);
         });
-        it('Converts undefined to ""', () => {
+        await it('Converts undefined to ""', () => {
             assert.strictEqual(dateTimeFunctions.dateToTimePeriodString(undefined), '');
         });
     });
-    describe('#timeIntegerToString()', () => {
-        it(`Converts ${testTimeNumber} to "${testTimeString}"`, () => {
+    await describe('#timeIntegerToString()', async () => {
+        await it(`Converts ${testTimeNumber} to "${testTimeString}"`, () => {
             const evaluatedString = dateTimeFunctions.timeIntegerToString(testTimeNumber);
             assert.ok(dateTimeFunctions.isValidTimeString(evaluatedString));
             assert.strictEqual(evaluatedString, testTimeString);
         });
-        it('Converts 0 to "00:00"', () => {
+        await it('Converts 0 to "00:00"', () => {
             assert.strictEqual(dateTimeFunctions.timeIntegerToString(0), '00:00');
         });
-        it('Converts undefined to "00:00"', () => {
+        await it('Converts undefined to "00:00"', () => {
             assert.strictEqual(dateTimeFunctions.timeIntegerToString(undefined), '00:00');
         });
     });
-    describe('#timeIntegerToPeriodString()', () => {
-        it(`Converts ${testTimeNumber} to "${testTimePeriodString}"`, () => {
+    await describe('#timeIntegerToPeriodString()', async () => {
+        await it(`Converts ${testTimeNumber} to "${testTimePeriodString}"`, () => {
             assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(testTimeNumber), testTimePeriodString);
         });
-        it('Converts 0 to "12:00 a.m."', () => {
+        await it('Converts 0 to "12:00 a.m."', () => {
             assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(0), '12:00 a.m.');
         });
+        await it('Converts null to "12:00 a.m."', () => {
+            assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(null), '12:00 a.m.');
+        });
+        await it('Converts undefined to "12:00 a.m."', () => {
+            assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(undefined), '12:00 a.m.');
+        });
     });
-    describe('#timeStringToInteger()', () => {
-        it(`Converts "${testTimeString}" to ${testTimeNumber}`, () => {
+    await describe('#timeStringToInteger()', async () => {
+        await it(`Converts "${testTimeString}" to ${testTimeNumber}`, () => {
             const evaluatedNumber = dateTimeFunctions.timeStringToInteger(testTimeString);
             assert.ok(dateTimeFunctions.isValidTimeInteger(evaluatedNumber));
             assert.strictEqual(evaluatedNumber, testTimeNumber);
         });
-        it(`Converts "${testInvalidString}" to undefined`, () => {
+        await it(`Converts "${testInvalidString}" to undefined`, () => {
             assert.strictEqual(dateTimeFunctions.timeStringToInteger(testInvalidString), undefined);
         });
     });

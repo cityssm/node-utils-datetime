@@ -5,8 +5,8 @@ export function dateToInteger(dateObject: undefined): undefined
 
 /**
  * Formats a JavaScript Date object as a number.
- * @param {Date} dateObject - A JavaScript Date object.
- * @returns {number} - A number representing the date.
+ * @param dateObject - A JavaScript Date object.
+ * @returns - A number representing the date.
  */
 export function dateToInteger(
   dateObject: Date | undefined

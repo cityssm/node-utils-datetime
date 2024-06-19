@@ -9,8 +9,8 @@ export function dateToTimePeriodString(dateObject: undefined): ''
 
 /**
  * Formats a JavaScript Date as a time period string.
- * @param {Date} dateObject - A JavaScript Date object.
- * @returns {TimePeriodString} - A time string formatted with the time period (ex. 1:23 a.m.)
+ * @param dateObject - A JavaScript Date object.
+ * @returns - A time string formatted with the time period (ex. 1:23 a.m.)
  */
 export function dateToTimePeriodString(
   dateObject: Date | undefined

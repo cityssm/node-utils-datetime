@@ -9,8 +9,8 @@ export function dateToTimeString(dateObject: undefined): ''
 
 /**
  * Formats a JavaScript Date object as a time string.
- * @param {Date} dateObject - A JavaScript Date object.
- * @returns {TimeString} - A string representing the time.
+ * @param dateObject - A JavaScript Date object.
+ * @returns - A string representing the time.
  */
 export function dateToTimeString(
   dateObject: Date | undefined

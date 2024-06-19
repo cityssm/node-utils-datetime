@@ -1,7 +1,7 @@
 /**
  * Determines if a number is a valid time number.
- * @param {unknown} possibleTimeInteger - A possible time number
- * @returns {boolean} - True if the possible time integer is valid.
+ * @param possibleTimeInteger - A possible time number
+ * @returns - True if the possible time integer is valid.
  */
 export function isValidTimeInteger(
   possibleTimeInteger: unknown

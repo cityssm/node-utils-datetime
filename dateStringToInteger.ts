@@ -4,8 +4,8 @@ import { isValidDateString } from './isValidDateString.js'
 
 /**
  * Formats a date string as a number.
- * @param {string} dateString - A date formatted as a string (ex. '2024-12-31')
- * @returns {number} - A number representing a date.
+ * @param dateString - A date formatted as a string (ex. '2024-12-31')
+ * @returns - A number representing a date.
  */
 export function dateStringToInteger(dateString: string): number | undefined {
   if (!isValidDateString(dateString)) {

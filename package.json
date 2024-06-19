@@ -25,14 +25,14 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha",
-    "coverage": "c8 mocha"
+    "test": "node --test",
+    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test"
   },
   "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
   "devDependencies": {
-    "@types/mocha": "^10.0.6",
-    "@types/node": "^20.11.19",
-    "eslint-config-cityssm": "^1.4.1"
+    "@types/node": "^20.14.5",
+    "eslint-config-cityssm": "^5.0.0",
+    "prettier-config-cityssm": "^1.0.0"
   }
 }

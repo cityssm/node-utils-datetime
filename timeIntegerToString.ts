@@ -2,8 +2,8 @@ import type { TimeString } from './dateTimeTypes.js'
 
 /**
  * Formats a number representing a time as a string.
- * @param {number} timeInteger - A number representing a time.
- * @returns {TimeString} - A string representing a time.
+ * @param timeInteger - A number representing a time.
+ * @returns - A string representing a time.
  */
 export function timeIntegerToString(
   timeInteger: number | undefined | null

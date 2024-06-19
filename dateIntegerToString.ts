@@ -12,8 +12,8 @@ export function dateIntegerToString(dateInteger: null | undefined | 0): ''
 
 /**
  * Formats a date number as a string.
- * @param {number | undefined | null} dateInteger - A number representing a date.
- * @returns {DateString | ''} - A string representing a date.
+ * @param dateInteger - A number representing a date.
+ * @returns - A string representing a date.
  */
 export function dateIntegerToString(
   dateInteger: number | undefined | null

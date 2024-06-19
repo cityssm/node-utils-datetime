@@ -2,8 +2,8 @@ import { isValidTimeString } from './isValidTimeString.js'
 
 /**
  * Formats a string representing a time as a number.
- * @param {string} timeString - A string representing a time.
- * @returns {number} - A number representing a time.
+ * @param timeString - A string representing a time.
+ * @returns - A number representing a time.
  */
 export function timeStringToInteger(timeString: string): number | undefined {
   if (!isValidTimeString(timeString)) {

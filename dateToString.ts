@@ -9,8 +9,8 @@ export function dateToString(dateObject: undefined): ''
 
 /**
  * Formats a JavaScript Date object as a date string.
- * @param {Date} dateObject - A JavaScript Date object
- * @returns {DateString} A date string.
+ * @param dateObject - A JavaScript Date object
+ * @returns - A date string.
  */
 export function dateToString(dateObject: Date | undefined): DateString | '' {
   if (dateObject === undefined) {
