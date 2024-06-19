@@ -201,11 +201,11 @@ await describe('dateTimeFns', async () => {
         await it('Converts 0 to "12:00 a.m."', () => {
             assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(0), '12:00 a.m.');
         });
-        await it('Converts null to "12:00 a.m."', () => {
-            assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(null), '12:00 a.m.');
+        await it('Converts null to ""', () => {
+            assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(null), '');
         });
-        await it('Converts undefined to "12:00 a.m."', () => {
-            assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(undefined), '12:00 a.m.');
+        await it('Converts undefined to ""', () => {
+            assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(undefined), '');
         });
     });
     await describe('#timeStringToInteger()', async () => {

@@ -303,18 +303,18 @@ await describe('dateTimeFns', async () => {
       )
     })
 
-    await it('Converts null to "12:00 a.m."', () => {
+    await it('Converts null to ""', () => {
       assert.strictEqual(
         dateTimeFunctions.timeIntegerToPeriodString(null),
-        '12:00 a.m.'
+        ''
       )
     })
 
-    await it('Converts undefined to "12:00 a.m."', () => {
+    await it('Converts undefined to ""', () => {
       assert.strictEqual(
         // eslint-disable-next-line unicorn/no-useless-undefined
         dateTimeFunctions.timeIntegerToPeriodString(undefined),
-        '12:00 a.m.'
+        ''
       )
     })
   })
