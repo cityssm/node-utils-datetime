@@ -1,19 +1,19 @@
-import { dateIntegerToDate } from './dateIntegerToDate.js'
-import { dateIntegerToString } from './dateIntegerToString.js'
-import { dateStringToDate } from './dateStringToDate.js'
-import { dateStringToInteger } from './dateStringToInteger.js'
-import { dateToInteger } from './dateToInteger.js'
-import { dateToString } from './dateToString.js'
-import { dateToTimeInteger } from './dateToTimeInteger.js'
-import { dateToTimePeriodString } from './dateToTimePeriodString.js'
-import { dateToTimeString } from './dateToTimeString.js'
-import { isValidDateInteger } from './isValidDateInteger.js'
-import { isValidDateString } from './isValidDateString.js'
-import { isValidTimeInteger } from './isValidTimeInteger.js'
-import { isValidTimeString } from './isValidTimeString.js'
-import { timeIntegerToPeriodString } from './timeIntegerToPeriodString.js'
-import { timeIntegerToString } from './timeIntegerToString.js'
-import { timeStringToInteger } from './timeStringToInteger.js'
+import { dateIntegerToDate } from './functions/dateIntegerToDate.js'
+import { dateIntegerToString } from './functions/dateIntegerToString.js'
+import { dateStringToDate } from './functions/dateStringToDate.js'
+import { dateStringToInteger } from './functions/dateStringToInteger.js'
+import { dateToInteger } from './functions/dateToInteger.js'
+import { dateToString } from './functions/dateToString.js'
+import { dateToTimeInteger } from './functions/dateToTimeInteger.js'
+import { dateToTimePeriodString } from './functions/dateToTimePeriodString.js'
+import { dateToTimeString } from './functions/dateToTimeString.js'
+import { isValidDateInteger } from './functions/isValidDateInteger.js'
+import { isValidDateString } from './functions/isValidDateString.js'
+import { isValidTimeInteger } from './functions/isValidTimeInteger.js'
+import { isValidTimeString } from './functions/isValidTimeString.js'
+import { timeIntegerToPeriodString } from './functions/timeIntegerToPeriodString.js'
+import { timeIntegerToString } from './functions/timeIntegerToString.js'
+import { timeStringToInteger } from './functions/timeStringToInteger.js'
 
 export const months = [
   'January',
@@ -45,45 +45,45 @@ export const days = [
  */
 
 // To Date Object
-export { dateIntegerToDate } from './dateIntegerToDate.js'
-export { dateStringToDate } from './dateStringToDate.js'
+export { dateIntegerToDate } from './functions/dateIntegerToDate.js'
+export { dateStringToDate } from './functions/dateStringToDate.js'
 
 // From Date Object
-export { dateToInteger } from './dateToInteger.js'
-export { dateToString } from './dateToString.js'
+export { dateToInteger } from './functions/dateToInteger.js'
+export { dateToString } from './functions/dateToString.js'
 
 // Helpers
-export { dateIntegerToString } from './dateIntegerToString.js'
-export { dateStringToInteger } from './dateStringToInteger.js'
+export { dateIntegerToString } from './functions/dateIntegerToString.js'
+export { dateStringToInteger } from './functions/dateStringToInteger.js'
 
 /*
  * Time Functions
  */
 
 // From Date Object
-export { dateToTimeInteger } from './dateToTimeInteger.js'
-export { dateToTimeString } from './dateToTimeString.js'
-export { dateToTimePeriodString } from './dateToTimePeriodString.js'
+export { dateToTimeInteger } from './functions/dateToTimeInteger.js'
+export { dateToTimeString } from './functions/dateToTimeString.js'
+export { dateToTimePeriodString } from './functions/dateToTimePeriodString.js'
 
 // From Time Integer
-export { timeIntegerToString } from './timeIntegerToString.js'
-export { timeIntegerToPeriodString } from './timeIntegerToPeriodString.js'
+export { timeIntegerToString } from './functions/timeIntegerToString.js'
+export { timeIntegerToPeriodString } from './functions/timeIntegerToPeriodString.js'
 
 // From Time String
-export { timeStringToInteger } from './timeStringToInteger.js'
+export { timeStringToInteger } from './functions/timeStringToInteger.js'
 
 // Types
 export type {
   DateString,
   TimeString,
   TimePeriodString
-} from './dateTimeTypes.js'
+} from './types.js'
 
 // Validators
-export { isValidDateInteger } from './isValidDateInteger.js'
-export { isValidDateString } from './isValidDateString.js'
-export { isValidTimeInteger } from './isValidTimeInteger.js'
-export { isValidTimeString } from './isValidTimeString.js'
+export { isValidDateInteger } from './functions/isValidDateInteger.js'
+export { isValidDateString } from './functions/isValidDateString.js'
+export { isValidTimeInteger } from './functions/isValidTimeInteger.js'
+export { isValidTimeString } from './functions/isValidTimeString.js'
 
 export default {
   months,

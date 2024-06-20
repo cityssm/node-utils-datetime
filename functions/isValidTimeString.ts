@@ -1,4 +1,4 @@
-import type { TimeString } from './dateTimeTypes.js'
+import type { TimeString } from '../types.js'
 
 const timeStringRegex = /^[01]\d:[0-5]\d$/
 

@@ -1,2 +1,2 @@
-import type { TimeString } from './dateTimeTypes.js';
+import type { TimeString } from '../types.js';
 export declare function timeIntegerToString(timeInteger: number | undefined | null): TimeString;

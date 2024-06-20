@@ -38,23 +38,9 @@ const testTimeString = '04:56'
 const testTimePeriodString = '4:56 a.m.'
 const testTimeNumber = 456
 
-const testInvalidTimeStrings = [
-  '456',
-  'abcd',
-  undefined,
-  null,
-  0,
-  {}
-]
+const testInvalidTimeStrings = ['456', 'abcd', undefined, null, 0, {}]
 
-const testInvalidTimeNumbers = [
-  -45,
-  3000,
-  'abcd',
-  undefined,
-  null,
-  {}
-]
+const testInvalidTimeNumbers = [-45, 3000, 'abcd', undefined, null, {}]
 
 await describe('dateTimeFns', async () => {
   await describe('#isValidDateString', async () => {
@@ -93,7 +79,7 @@ await describe('dateTimeFns', async () => {
 
     await it('Converts undefined to undefined', () => {
       assert.strictEqual(
-        // eslint-disable-next-line unicorn/no-useless-undefined
+        // eslint-disable-next-line unicorn/no-useless-undefined, @typescript-eslint/no-confusing-void-expression
         dateTimeFunctions.dateToInteger(undefined),
         undefined
       )
@@ -186,7 +172,16 @@ await describe('dateTimeFns', async () => {
 
     await it(`Converts "${testInvalidString}" to undefined`, () => {
       assert.strictEqual(
+        // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
         dateTimeFunctions.dateStringToInteger(testInvalidString),
+        undefined
+      )
+    })
+
+    await it(`Converts undefined to undefined`, () => {
+      assert.strictEqual(
+        // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression, unicorn/no-useless-undefined
+        dateTimeFunctions.dateStringToInteger(undefined),
         undefined
       )
     })
@@ -304,10 +299,7 @@ await describe('dateTimeFns', async () => {
     })
 
     await it('Converts null to ""', () => {
-      assert.strictEqual(
-        dateTimeFunctions.timeIntegerToPeriodString(null),
-        ''
-      )
+      assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(null), '')
     })
 
     await it('Converts undefined to ""', () => {
@@ -330,6 +322,7 @@ await describe('dateTimeFns', async () => {
 
     await it(`Converts "${testInvalidString}" to undefined`, () => {
       assert.strictEqual(
+        // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
         dateTimeFunctions.timeStringToInteger(testInvalidString),
         undefined
       )

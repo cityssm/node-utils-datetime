@@ -28,22 +28,8 @@ const testTimeDate = new Date(1970, 2 - 1, 1, 4, 56);
 const testTimeString = '04:56';
 const testTimePeriodString = '4:56 a.m.';
 const testTimeNumber = 456;
-const testInvalidTimeStrings = [
-    '456',
-    'abcd',
-    undefined,
-    null,
-    0,
-    {}
-];
-const testInvalidTimeNumbers = [
-    -45,
-    3000,
-    'abcd',
-    undefined,
-    null,
-    {}
-];
+const testInvalidTimeStrings = ['456', 'abcd', undefined, null, 0, {}];
+const testInvalidTimeNumbers = [-45, 3000, 'abcd', undefined, null, {}];
 await describe('dateTimeFns', async () => {
     await describe('#isValidDateString', async () => {
         await it(`Returns true for "${testDateString}"`, () => {
@@ -131,6 +117,9 @@ await describe('dateTimeFns', async () => {
         });
         await it(`Converts "${testInvalidString}" to undefined`, () => {
             assert.strictEqual(dateTimeFunctions.dateStringToInteger(testInvalidString), undefined);
+        });
+        await it(`Converts undefined to undefined`, () => {
+            assert.strictEqual(dateTimeFunctions.dateStringToInteger(undefined), undefined);
         });
     });
     await describe('#isValidTimeString', async () => {

@@ -1,8 +1,4 @@
-import type { DateString } from './dateTimeTypes.js'
-
-export function dateToString<D extends Date | undefined>(
-  dateObject: D
-): DateString | ''
+import type { DateString } from '../types.js'
 
 export function dateToString(dateObject: Date): DateString
 export function dateToString(dateObject: undefined): ''

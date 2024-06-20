@@ -1,2 +1,2 @@
-import type { TimeString } from './dateTimeTypes.js';
+import type { TimeString } from '../types.js';
 export declare function isValidTimeString(possibleTimeString: unknown): possibleTimeString is TimeString;

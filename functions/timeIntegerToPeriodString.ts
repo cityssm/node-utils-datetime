@@ -1,5 +1,6 @@
+import type { TimePeriodString } from '../types.js'
+
 import { dateIntegerToDate } from './dateIntegerToDate.js'
-import type { TimePeriodString } from './dateTimeTypes.js'
 import { dateToTimePeriodString } from './dateToTimePeriodString.js'
 
 export function timeIntegerToPeriodString(timeInteger: number): TimePeriodString
@@ -18,5 +19,5 @@ export function timeIntegerToPeriodString(
   }
 
   // eslint-disable-next-line unicorn/numeric-separators-style
-  return dateToTimePeriodString(dateIntegerToDate(19700101, timeInteger))
+  return dateToTimePeriodString(dateIntegerToDate(19700101, timeInteger) as Date)
 }

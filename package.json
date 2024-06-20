@@ -20,7 +20,6 @@
     "url": "git+https://github.com/cityssm/node-utils-datetime.git"
   },
   "exports": "./index.js",
-  "types": "./index.d.ts",
   "directories": {
     "test": "test"
   },
@@ -31,7 +30,7 @@
   "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.14.5",
+    "@types/node": "^20.14.6",
     "eslint-config-cityssm": "^5.0.0",
     "prettier-config-cityssm": "^1.0.0"
   }

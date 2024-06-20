@@ -1,4 +1,4 @@
-import type { DateString } from './dateTimeTypes.js'
+import type { DateString } from '../types.js'
 
 const dateStringRegex = /^\d{4}-[01]\d-[0-3]\d$/
 

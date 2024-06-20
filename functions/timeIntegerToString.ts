@@ -1,4 +1,4 @@
-import type { TimeString } from './dateTimeTypes.js'
+import type { TimeString } from '../types.js'
 
 /**
  * Formats a number representing a time as a string.
