@@ -118,7 +118,7 @@ await describe('dateTimeFns', async () => {
         await it(`Converts "${testInvalidString}" to undefined`, () => {
             assert.strictEqual(dateTimeFunctions.dateStringToInteger(testInvalidString), undefined);
         });
-        await it(`Converts undefined to undefined`, () => {
+        await it('Converts undefined to undefined', () => {
             assert.strictEqual(dateTimeFunctions.dateStringToInteger(undefined), undefined);
         });
     });

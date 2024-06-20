@@ -178,7 +178,7 @@ await describe('dateTimeFns', async () => {
       )
     })
 
-    await it(`Converts undefined to undefined`, () => {
+    await it('Converts undefined to undefined', () => {
       assert.strictEqual(
         // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression, unicorn/no-useless-undefined
         dateTimeFunctions.dateStringToInteger(undefined),
