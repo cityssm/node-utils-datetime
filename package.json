@@ -30,7 +30,7 @@
   "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.14.6",
+    "@types/node": "^22.5.5",
     "eslint-config-cityssm": "^5.0.0",
     "prettier-config-cityssm": "^1.0.0"
   }
