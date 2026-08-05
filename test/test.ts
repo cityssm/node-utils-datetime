@@ -1,4 +1,4 @@
-// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 /* eslint-disable unicorn/no-null, unicorn/numeric-separators-style */
 
 import assert from 'node:assert'
@@ -43,6 +43,22 @@ const testInvalidTimeStrings = ['456', 'abcd', undefined, null, 0, {}]
 const testInvalidTimeNumbers = [-45, 3000, 'abcd', undefined, null, {}]
 
 await describe('dateTimeFns', async () => {
+  await describe('#isSameDay', async () => {
+    await it('Returns true for same day', () => {
+      const date1 = new Date(2024, 5, 15, 9)
+      const date2 = new Date(2024, 5, 15)
+
+      assert.ok(dateTimeFunctions.isSameDay(date1, date2))
+    })
+
+    await it('Returns false for different days', () => {
+      const date1 = new Date(2024, 5, 15, 9)
+      const date2 = new Date(2024, 5, 16)
+
+      assert.ok(!dateTimeFunctions.isSameDay(date1, date2))
+    })
+  })
+
   await describe('#isValidDateString', async () => {
     await it(`Returns true for "${testDateString}"`, () => {
       assert.ok(dateTimeFunctions.isValidDateString(testDateString))
@@ -139,7 +155,7 @@ await describe('dateTimeFns', async () => {
     await it(`Converts "${testDateString}" to "${testDate.toLocaleString()}"`, () => {
       const evaluatedDate = dateTimeFunctions.dateStringToDate(testDateString)
 
-      assert.ok(evaluatedDate)
+      assert.ok(evaluatedDate instanceof Date)
       assert.strictEqual(evaluatedDate.getTime(), testDate.getTime())
     })
 
@@ -149,7 +165,7 @@ await describe('dateTimeFns', async () => {
         testTimeString
       )
 
-      assert.ok(evaluatedDate)
+      assert.ok(evaluatedDate instanceof Date)
       assert.strictEqual(evaluatedDate.getTime(), testTimeDate.getTime())
     })
 

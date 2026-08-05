@@ -1,3 +1,8 @@
+/**
+ * Formats a JavaScript Date object as a number.
+ * @param dateObject - A JavaScript Date object.
+ * @returns - A number representing the date.
+ */
 export function dateToInteger(dateObject) {
     if (dateObject === undefined) {
         return undefined;

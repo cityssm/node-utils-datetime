@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
+/* eslint-disable unicorn/no-null, unicorn/numeric-separators-style */
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import dateTimeFunctions from '../index.js';
@@ -31,11 +33,24 @@ const testTimeNumber = 456;
 const testInvalidTimeStrings = ['456', 'abcd', undefined, null, 0, {}];
 const testInvalidTimeNumbers = [-45, 3000, 'abcd', undefined, null, {}];
 await describe('dateTimeFns', async () => {
+    await describe('#isSameDay', async () => {
+        await it('Returns true for same day', () => {
+            const date1 = new Date(2024, 5, 15, 9);
+            const date2 = new Date(2024, 5, 15);
+            assert.ok(dateTimeFunctions.isSameDay(date1, date2));
+        });
+        await it('Returns false for different days', () => {
+            const date1 = new Date(2024, 5, 15, 9);
+            const date2 = new Date(2024, 5, 16);
+            assert.ok(!dateTimeFunctions.isSameDay(date1, date2));
+        });
+    });
     await describe('#isValidDateString', async () => {
         await it(`Returns true for "${testDateString}"`, () => {
             assert.ok(dateTimeFunctions.isValidDateString(testDateString));
         });
         for (const invalidDateString of testInvalidDateStrings) {
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             await it(`Returns false for "${invalidDateString}"`, () => {
                 assert.ok(!dateTimeFunctions.isValidDateString(invalidDateString));
             });
@@ -46,6 +61,7 @@ await describe('dateTimeFns', async () => {
             assert.ok(dateTimeFunctions.isValidDateInteger(testDateNumber));
         });
         for (const testInvalidDateNumber of testInvalidDateNumbers) {
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             await it(`Returns false for "${testInvalidDateNumber}"`, () => {
                 assert.ok(!dateTimeFunctions.isValidDateInteger(testInvalidDateNumber));
             });
@@ -58,7 +74,9 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(evaluatedNumber, testDateNumber);
         });
         await it('Converts undefined to undefined', () => {
-            assert.strictEqual(dateTimeFunctions.dateToInteger(undefined), undefined);
+            assert.strictEqual(
+            // eslint-disable-next-line unicorn/no-useless-undefined, @typescript-eslint/no-confusing-void-expression
+            dateTimeFunctions.dateToInteger(undefined), undefined);
         });
     });
     await describe('#dateToString()', async () => {
@@ -68,7 +86,9 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(evaluatedString, testDateString);
         });
         await it('Converts undefined to ""', () => {
-            assert.strictEqual(dateTimeFunctions.dateToString(undefined), '');
+            assert.strictEqual(
+            // eslint-disable-next-line unicorn/no-useless-undefined
+            dateTimeFunctions.dateToString(undefined), '');
         });
     });
     await describe('#dateIntegerToString()', async () => {
@@ -88,6 +108,7 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(evaluatedDate.getTime(), testDate.getTime());
         });
         await it('Converts null to undefined', () => {
+            // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
             assert.strictEqual(dateTimeFunctions.dateIntegerToDate(null), undefined);
         });
         await it('Converts 0 to null', () => {
@@ -97,12 +118,12 @@ await describe('dateTimeFns', async () => {
     await describe('#dateStringToDate()', async () => {
         await it(`Converts "${testDateString}" to "${testDate.toLocaleString()}"`, () => {
             const evaluatedDate = dateTimeFunctions.dateStringToDate(testDateString);
-            assert.ok(evaluatedDate);
+            assert.ok(evaluatedDate instanceof Date);
             assert.strictEqual(evaluatedDate.getTime(), testDate.getTime());
         });
         await it(`Converts "${testDateString} ${testTimeString}" to "${testTimeDate.toLocaleString()}"`, () => {
             const evaluatedDate = dateTimeFunctions.dateStringToDate(testDateString, testTimeString);
-            assert.ok(evaluatedDate);
+            assert.ok(evaluatedDate instanceof Date);
             assert.strictEqual(evaluatedDate.getTime(), testTimeDate.getTime());
         });
         await it(`Converts "${testInvalidString}" to undefined`, () => {
@@ -116,10 +137,14 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(evaluatedNumber, testDateNumber);
         });
         await it(`Converts "${testInvalidString}" to undefined`, () => {
-            assert.strictEqual(dateTimeFunctions.dateStringToInteger(testInvalidString), undefined);
+            assert.strictEqual(
+            // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+            dateTimeFunctions.dateStringToInteger(testInvalidString), undefined);
         });
         await it('Converts undefined to undefined', () => {
-            assert.strictEqual(dateTimeFunctions.dateStringToInteger(undefined), undefined);
+            assert.strictEqual(
+            // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression, unicorn/no-useless-undefined
+            dateTimeFunctions.dateStringToInteger(undefined), undefined);
         });
     });
     await describe('#isValidTimeString', async () => {
@@ -127,6 +152,7 @@ await describe('dateTimeFns', async () => {
             assert.ok(dateTimeFunctions.isValidTimeString(testTimeString));
         });
         for (const invalidTimeString of testInvalidTimeStrings) {
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             await it(`Returns false for "${invalidTimeString}"`, () => {
                 assert.ok(!dateTimeFunctions.isValidTimeString(invalidTimeString));
             });
@@ -137,6 +163,7 @@ await describe('dateTimeFns', async () => {
             assert.ok(dateTimeFunctions.isValidTimeInteger(testTimeNumber));
         });
         for (const testInvalidTimeNumber of testInvalidTimeNumbers) {
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             await it(`Returns false for "${testInvalidTimeNumber}"`, () => {
                 assert.ok(!dateTimeFunctions.isValidTimeInteger(testInvalidTimeNumber));
             });
@@ -149,7 +176,9 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(evaluatedNumber, testTimeNumber);
         });
         await it('Converts undefined to undefined', () => {
-            assert.strictEqual(dateTimeFunctions.dateToTimeInteger(undefined), undefined);
+            assert.strictEqual(
+            // eslint-disable-next-line unicorn/no-useless-undefined
+            dateTimeFunctions.dateToTimeInteger(undefined), undefined);
         });
     });
     await describe('#dateToTimeString()', async () => {
@@ -159,6 +188,7 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(evaluatedString, testTimeString);
         });
         await it('Converts undefined to ""', () => {
+            // eslint-disable-next-line unicorn/no-useless-undefined
             assert.strictEqual(dateTimeFunctions.dateToTimeString(undefined), '');
         });
     });
@@ -167,7 +197,9 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(dateTimeFunctions.dateToTimePeriodString(testTimeDate), testTimePeriodString);
         });
         await it('Converts undefined to ""', () => {
-            assert.strictEqual(dateTimeFunctions.dateToTimePeriodString(undefined), '');
+            assert.strictEqual(
+            // eslint-disable-next-line unicorn/no-useless-undefined
+            dateTimeFunctions.dateToTimePeriodString(undefined), '');
         });
     });
     await describe('#timeIntegerToString()', async () => {
@@ -180,7 +212,9 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(dateTimeFunctions.timeIntegerToString(0), '00:00');
         });
         await it('Converts undefined to "00:00"', () => {
-            assert.strictEqual(dateTimeFunctions.timeIntegerToString(undefined), '00:00');
+            assert.strictEqual(
+            // eslint-disable-next-line unicorn/no-useless-undefined
+            dateTimeFunctions.timeIntegerToString(undefined), '00:00');
         });
     });
     await describe('#timeIntegerToPeriodString()', async () => {
@@ -194,7 +228,9 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(null), '');
         });
         await it('Converts undefined to ""', () => {
-            assert.strictEqual(dateTimeFunctions.timeIntegerToPeriodString(undefined), '');
+            assert.strictEqual(
+            // eslint-disable-next-line unicorn/no-useless-undefined
+            dateTimeFunctions.timeIntegerToPeriodString(undefined), '');
         });
     });
     await describe('#timeStringToInteger()', async () => {
@@ -204,7 +240,9 @@ await describe('dateTimeFns', async () => {
             assert.strictEqual(evaluatedNumber, testTimeNumber);
         });
         await it(`Converts "${testInvalidString}" to undefined`, () => {
-            assert.strictEqual(dateTimeFunctions.timeStringToInteger(testInvalidString), undefined);
+            assert.strictEqual(
+            // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+            dateTimeFunctions.timeStringToInteger(testInvalidString), undefined);
         });
     });
 });

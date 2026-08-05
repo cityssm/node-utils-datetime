@@ -1,3 +1,8 @@
+/**
+ * Formats a JavaScript Date object as a date string.
+ * @param dateObject - A JavaScript Date object
+ * @returns - A date string.
+ */
 export function dateToString(dateObject) {
     if (dateObject === undefined) {
         return '';

@@ -1,5 +1,10 @@
 import { isValidDateInteger } from './isValidDateInteger.js';
 import { isValidTimeInteger } from './isValidTimeInteger.js';
+/**
+ * @param dateInteger - A number representing a date (ex. 20241231)
+ * @param timeInteger - A number representing a time (ex. 2359)
+ * @returns - A Date object (ex. '2024-12-31 23:59')
+ */
 export function dateIntegerToDate(dateInteger, timeInteger = 0) {
     if (!isValidDateInteger(dateInteger) || !isValidTimeInteger(timeInteger)) {
         return undefined;

@@ -7,6 +7,7 @@ import { dateToString } from './functions/dateToString.js'
 import { dateToTimeInteger } from './functions/dateToTimeInteger.js'
 import { dateToTimePeriodString } from './functions/dateToTimePeriodString.js'
 import { dateToTimeString } from './functions/dateToTimeString.js'
+import { isSameDay } from './functions/isSameDay.js'
 import { isValidDateInteger } from './functions/isValidDateInteger.js'
 import { isValidDateString } from './functions/isValidDateString.js'
 import { isValidTimeInteger } from './functions/isValidTimeInteger.js'
@@ -40,68 +41,45 @@ export const days = [
   'Saturday'
 ]
 
-/*
- * Date Functions
- */
-
-// To Date Object
 export { dateIntegerToDate } from './functions/dateIntegerToDate.js'
+export { dateIntegerToString } from './functions/dateIntegerToString.js'
 export { dateStringToDate } from './functions/dateStringToDate.js'
-
-// From Date Object
+export { dateStringToInteger } from './functions/dateStringToInteger.js'
 export { dateToInteger } from './functions/dateToInteger.js'
 export { dateToString } from './functions/dateToString.js'
-
-// Helpers
-export { dateIntegerToString } from './functions/dateIntegerToString.js'
-export { dateStringToInteger } from './functions/dateStringToInteger.js'
-
-/*
- * Time Functions
- */
-
-// From Date Object
 export { dateToTimeInteger } from './functions/dateToTimeInteger.js'
-export { dateToTimeString } from './functions/dateToTimeString.js'
 export { dateToTimePeriodString } from './functions/dateToTimePeriodString.js'
-
-// From Time Integer
-export { timeIntegerToString } from './functions/timeIntegerToString.js'
-export { timeIntegerToPeriodString } from './functions/timeIntegerToPeriodString.js'
-
-// From Time String
-export { timeStringToInteger } from './functions/timeStringToInteger.js'
-
-// Types
-export type {
-  DateString,
-  TimeString,
-  TimePeriodString
-} from './types.js'
-
-// Validators
+export { dateToTimeString } from './functions/dateToTimeString.js'
+export { isSameDay } from './functions/isSameDay.js'
 export { isValidDateInteger } from './functions/isValidDateInteger.js'
 export { isValidDateString } from './functions/isValidDateString.js'
 export { isValidTimeInteger } from './functions/isValidTimeInteger.js'
 export { isValidTimeString } from './functions/isValidTimeString.js'
+export { timeIntegerToPeriodString } from './functions/timeIntegerToPeriodString.js'
+export { timeIntegerToString } from './functions/timeIntegerToString.js'
+export { timeStringToInteger } from './functions/timeStringToInteger.js'
 
 export default {
-  months,
-  days,
   dateIntegerToDate,
   dateIntegerToString,
   dateStringToDate,
+  dateStringToInteger,
   dateToInteger,
   dateToString,
-  dateStringToInteger,
   dateToTimeInteger,
-  dateToTimeString,
   dateToTimePeriodString,
+  dateToTimeString,
+  days,
+  isSameDay,
   isValidDateInteger,
   isValidDateString,
   isValidTimeInteger,
   isValidTimeString,
-  timeIntegerToString,
+  months,
   timeIntegerToPeriodString,
+  timeIntegerToString,
   timeStringToInteger
 }
+
+// Types
+export type { DateString, TimePeriodString, TimeString } from './types.js'

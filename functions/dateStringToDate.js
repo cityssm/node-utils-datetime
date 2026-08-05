@@ -1,5 +1,11 @@
 import { isValidDateString } from './isValidDateString.js';
 import { isValidTimeString } from './isValidTimeString.js';
+/**
+ * Formats a string date and time as a JavaScript Date object.
+ * @param dateString - A string representing a date.
+ * @param timeString - A string representing a time.
+ * @returns - A JavaScript Date object.
+ */
 export function dateStringToDate(dateString, timeString = '00:00') {
     if (!isValidDateString(dateString) || !isValidTimeString(timeString)) {
         return undefined;
