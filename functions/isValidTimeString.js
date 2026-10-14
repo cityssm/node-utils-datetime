@@ -1,4 +1,5 @@
-const timeStringRegex = /^[01]\d:[0-5]\d$/;
+const timeStringRegex = /^[01]\d:[0-5]\d$/v;
+const timeStringRegex2 = /^2[0-3]:[0-5]\d$/v;
 /**
  * Determines if a string is a valid time string.
  * @param possibleTimeString - A possible time string.
@@ -6,6 +7,7 @@ const timeStringRegex = /^[01]\d:[0-5]\d$/;
  */
 export function isValidTimeString(possibleTimeString) {
     return (typeof possibleTimeString === 'string' &&
-        (possibleTimeString ?? '').length === 5 &&
-        timeStringRegex.test(possibleTimeString));
+        possibleTimeString.length === 5 &&
+        (timeStringRegex.test(possibleTimeString) ||
+            timeStringRegex2.test(possibleTimeString)));
 }
