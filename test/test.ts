@@ -43,7 +43,16 @@ const testTimeString = '04:56'
 const testTimePeriodString = '4:56 a.m.'
 const testTimeNumber = 456
 
-const testInvalidTimeStrings = ['456', 'abcd', undefined, null, 0, {}]
+const testInvalidTimeStrings = [
+  '456',
+  'abcd',
+  undefined,
+  null,
+  0,
+  {},
+  '25:00',
+  '12:69'
+]
 
 const testInvalidTimeNumbers = [-45, 3000, 'abcd', undefined, null, {}]
 
