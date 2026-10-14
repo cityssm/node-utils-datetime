@@ -1,6 +1,6 @@
 {
   "name": "@cityssm/utils-datetime",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Date time utilities for Node.js applications",
   "keywords": [
     "date",
@@ -38,5 +38,8 @@
     "@types/node": "^26.6.5",
     "eslint-config-cityssm": "^58.0.0",
     "prettier-config-cityssm": "^2.2.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
