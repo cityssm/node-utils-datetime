@@ -195,6 +195,12 @@ await describe('dateTimeFns', async () => {
             assert.ok(dateTimeFunctions.isValidTimeString(evaluatedString));
             assert.strictEqual(evaluatedString, testTimeString);
         });
+        await it('Converts a midnight Date to "00:00"', () => {
+            const midnightDate = new Date('2024-01-01T00:00:00');
+            const evaluatedString = dateTimeFunctions.dateToTimeString(midnightDate);
+            assert.ok(dateTimeFunctions.isValidTimeString(evaluatedString));
+            assert.strictEqual(evaluatedString, '00:00');
+        });
         await it('Converts undefined to ""', () => {
             assert.strictEqual(dateTimeFunctions.dateToTimeString(undefined), '');
         });

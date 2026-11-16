@@ -16,7 +16,7 @@ export function dateToTimeString(
   }
 
   return Intl.DateTimeFormat('en-CA', {
-    hourCycle: 'h24',
+    hourCycle: 'h23',
     hour: '2-digit',
     minute: '2-digit'
   }).format(dateObject) as TimeString
